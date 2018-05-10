@@ -42,14 +42,24 @@
     	$resSD = linkSD($fetch);
      	if($resHD != '') {
         	$source = '
-        	<source src="'.$resHD.'" type="video/mp4" res="HD" label="HD"/>
-        	<source src="'.$resSD.'" type="video/mp4" res="SD" label="SD"/>
-        	';
+        sources: [{
+        file: "'.$resHD.'",
+        label: "720p HD",
+		"default": "true"
+        },{
+        file: "'.$resSD.'",
+        label: "480p SD"
+        }],
+        ';
      		return $source;
     	} else {
      		$source = '
-     		<source src="'.$resSD.'" type="video/mp4" res="SD" label="SD"/>
-     		';
+     	sources: [{
+        file: "'.$resSD.'",
+        label: "360p SD",
+		"default": "true"
+        }],
+     	';
      		return $source;
     	}	
     }
